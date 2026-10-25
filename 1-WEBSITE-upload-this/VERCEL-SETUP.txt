@@ -1,0 +1,86 @@
+SADIA ARIF PORTFOLIO - VERCEL EDITION v3  (INSTANT CHANGES)
+
+WHAT CHANGED
+Your edits are now saved in a free online database. Every visitor's page reads it each time it opens,
+so a change appears the moment you press "Save changes". No GitHub token, no waiting for a rebuild.
+GitHub is only used to hold your website files.
+
+-------------------------------------------------------------------------------
+YOUR REPOSITORY MUST LOOK LIKE THIS (open it on github.com and check!)
+   index.html  admin.html  about.html ...  vercel.json  package.json  VERCEL-SETUP.txt
+   and these FOLDERS:  api  (containing admin.js, content.js, img.js, _store.js),  assets,  data
+ If the folder "api" is missing, saving CANNOT work and the admin shows "Not connected to your website".
+ IMPORTANT: on GitHub, drag the files AND FOLDERS into the page with your mouse. The button
+ "choose your files" cannot upload folders, so the "api" folder would be silently left out.
+ Old leftovers (api.php, .htaccess, data/index.php) can stay; they do no harm.
+
+IF YOUR WEBSITE IS ALREADY ON GITHUB + VERCEL (your case)
+ 1. Unzip this file. Open the folder: you must SEE index.html, admin.html and a folder called "api".
+ 2. Open your GitHub repository > "Add file" > "Upload files". Select EVERYTHING inside the unzipped
+    folder and drag it in (not the outer folder). Click "Commit changes".
+    (Same names = they replace the old ones. The new "api" files are added.)
+ 3. Wait about a minute until Vercel shows the new deployment as "Ready".
+ 4. Do the DATABASE step below (one time).
+
+IF YOU ARE STARTING FRESH
+ GitHub: create a repository, upload everything inside the unzipped folder (see above), commit.
+ Vercel: Add New > Project > import the repository. Framework Preset: "Other". Leave Build Command,
+ Output Directory and Root Directory EMPTY. Click Deploy. Then do the DATABASE step.
+
+-------------------------------------------------------------------------------
+DATABASE STEP (one time, free, about 3 minutes)
+ 1. In Vercel open your project and click the "Storage" tab.
+ 2. Click "Create Database" and choose "Upstash" > "Redis". Name it anything. Region: pick one close to you
+    (for Pakistan: Mumbai or Singapore). Choose the FREE plan. Create.
+ 3. When asked, connect it to your portfolio project (keep all environments ticked). Vercel adds the
+    needed settings by itself.
+ 4. Go to Deployments > the three dots on the top one > Redeploy.
+ 5. Open yourwebsite.com/admin.html and log in:  Username: admin   Password: Admin@123
+    The bottom bar shows a green label: "Live via Vercel: changes appear instantly".
+    If you see a red box "Saving is not switched on yet", step 3 or 4 was missed: do them again.
+
+ Can't find Storage? Alternative: sign up free at upstash.com, create a Redis database, open its page,
+ find the "REST API" section and copy the two values. In Vercel > Settings > Environment Variables add:
+     UPSTASH_REDIS_REST_URL    = (the URL you copied)
+     UPSTASH_REDIS_REST_TOKEN  = (the token you copied)
+ then Redeploy.
+
+USE THE ADMIN FROM YOUR COMPUTER (no need to open the website's admin page)
+ The zip contains a folder called 2-ADMIN-keep-on-computer. Keep it anywhere on your computer.
+ 1. Double-click admin.html in that folder.
+ 2. In "Your website link" paste your website address, e.g. https://yourwebsite.com
+ 3. Type your username and password and press Log in. (First time: admin / Admin@123 - then change it.)
+ 4. Edit anything (text, photos, services, projects, theme...) and press "Save changes".
+    Your live website changes immediately. The admin remembers your link for next time.
+ You can also still use yourwebsite.com/admin.html: leave the link box empty there.
+
+-------------------------------------------------------------------------------
+USING THE ADMIN
+ Edit text, add photos, services, projects, awards... then press "Save changes".
+ You will see: "Saved. Your live website is updated right now, for everyone."
+ Open your website in another browser or on your phone and refresh: the change is there.
+ Dashboard > "Restore my previous saved version" brings back the version before your last save.
+
+CHANGE THE DEFAULT PASSWORD (do this first, before sharing your website)
+ 1. Log in at yourwebsite.com/admin.html with  admin  /  Admin@123
+ 2. Click "Password" in the left menu.
+ 3. Type the current password (Admin@123), optionally a new username, and a new password (at least 8 characters).
+ 4. Press "Change password". Done. Next time, log in with your new details.
+ The new password is stored scrambled in your database; nobody can read it.
+ FORGOT IT? In Vercel > your project > Settings > Environment Variables add  ADMIN_PASSWORD  (and optionally
+ ADMIN_USER), then Deployments > Redeploy. Log in with those: this reset password always works.
+
+GOOD TO KNOW
+ - Photos are shrunk automatically so they load fast (phone photos are fine).
+ - Videos cannot be uploaded here. Put videos on YouTube and use "Add video link" / "Paste link".
+ - You can edit from any device or browser: your content lives in the database, not in your browser.
+ - The free database holds far more than a portfolio needs.
+
+IF SOMETHING GOES WRONG
+ - 404 NOT_FOUND on the website: index.html is not at the top of your GitHub repository, or Framework Preset is
+   not "Other", or Root Directory is not empty (Project > Settings > General). Fix it and Redeploy.
+ - Red label "Preview only" / message "Not connected to your website": the "api" folder is missing from your
+   repository (see the checklist at the top). Drag the api folder into GitHub, wait for Vercel "Ready", reload.
+ - Red box "Saving is not switched on yet": do the DATABASE step (connect it to the project, then Redeploy).
+ - "Please log in again": your login expired (12 hours). Log in again.
+ - Change seen in admin but not on the website: hard refresh (Ctrl+Shift+R) or open a private window.
